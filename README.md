@@ -1,5 +1,6 @@
 # Kotlin/Native
 *  Site officiel: https://kotlinlang.org/docs/reference/native-overview.html
+*  Tutoriel pour créer une application pour iOS et Android: https://play.kotlinlang.org/hands-on/Targeting%20iOS%20and%20Android%20with%20Kotlin%20Multiplatform/01_Introduction
 *  Conférence interensate sur le sujet: https://www.youtube.com/watch?v=dMm6zyW2i9I
 
 
@@ -17,7 +18,7 @@ Le résultat initial de l'URL contient de nombreuses propriétés et doit être 
 
 Voici le résultat des applications Android et iOS
 
-![Screenshot_2019-11-19_at_10.41.26](/uploads/0593db2887caa7d5a165a138920c82ef/Screenshot_2019-11-19_at_10.41.26.png)
+![Screenshot_2019-11-19_at_13.24.07](/uploads/4a9875b5e206034d12ecc3fd4de15522/Screenshot_2019-11-19_at_13.24.07.png)
 
 ## Organisation du code
 Le projet comprend trois parties:
