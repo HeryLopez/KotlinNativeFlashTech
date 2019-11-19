@@ -14,21 +14,22 @@ class ViewController: UIViewController {
     let tableView = UITableView()
     var safeArea: UILayoutGuide!
     var itemsList = [""]
-
-    override func loadView() {
-        super.loadView()
+    var label = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
         safeArea = view.layoutMarginsGuide
-        setupTableView()
         setupLabel()
-        
+        setupTableView()
         HttpBinClient().runGet(callback: self)
     }
     
     func setupTableView() {
         view.addSubview(tableView)
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        tableView.topAnchor.constraint(equalTo: label.bottomAnchor).isActive = true
         tableView.leftAnchor.constraint(equalTo: safeArea.leftAnchor).isActive = true
         tableView.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor).isActive = true
         tableView.rightAnchor.constraint(equalTo: safeArea.rightAnchor).isActive = true
@@ -38,12 +39,17 @@ class ViewController: UIViewController {
     }
     
     func setupLabel() {
-        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 21))
-        label.center = CGPoint(x: 200, y: 50)
+        label = UILabel()
         label.textAlignment = .center
-        label.font = label.font.withSize(25)
+        label.font=UIFont.systemFont(ofSize: 22)
         label.text = CommonKt.createApplicationScreenMessage()
-        view.addSubview(label)
+
+        self.view.addSubview(label)
+        label.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.topAnchor.constraint(equalTo: safeArea.topAnchor).isActive = true
+        label.leftAnchor.constraint(equalTo: safeArea.leftAnchor).isActive = true
+        label.rightAnchor.constraint(equalTo: safeArea.rightAnchor).isActive = true
     }
 }
 
