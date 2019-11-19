@@ -16,21 +16,23 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        main_text.text = createApplicationScreenMessage()
+
+        val list = arrayListOf<String>()
+        setupAdapter(list)
+
         HttpBinClient().runGet(object : IResponse {
             override fun onResult(item: ArrayList<String>) {
                 runOnUiThread {
-                    listView.adapter = null
-                    adapter = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, item)
-                    listView.adapter = adapter
-                    adapter.notifyDataSetChanged()
+                    setupAdapter(item)
                 }
             }
         })
+    }
 
-        main_text.text = createApplicationScreenMessage()
-
-        val list = mutableListOf<String>()
+    private fun setupAdapter(list: ArrayList<String>){
         adapter = ArrayAdapter(applicationContext, android.R.layout.simple_list_item_1, list)
+        listView.adapter = null
         listView.adapter = adapter
     }
 }

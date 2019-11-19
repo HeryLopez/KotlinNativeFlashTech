@@ -3,7 +3,6 @@ package com.jetbrains.handson.mpp.mobile
 import IResponse
 import kotlinx.serialization.json.JSON
 
-
 class HttpBinClient: NetworkClient("https://itunes.apple.com/search?term=Michael") {
 
     fun runGet(callback : IResponse) {
